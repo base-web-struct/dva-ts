@@ -130,9 +130,9 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: '../index.html',
+            filename: '../public/index.html',
             title: 'Eigen',
-            template: './index.ejs'
+            template: './public/index.ejs'
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.EnvironmentPlugin(['NODE_ENV']),

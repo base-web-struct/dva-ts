@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var express = require('express');
 var proxy = require('http-proxy-middleware');
 
-var config = require('./webpack/webpack.config.dev');
+var config = require('../webpack/webpack.config.dev');
 var opn = require('opn');
 
 var app = express();
@@ -33,7 +33,8 @@ const proxyConfig = {
 app.use('/api', proxy(proxyConfig));
 
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    console.log(__dirname)
+    res.sendFile(path.join(`${__dirname.replace(/\/bin/g, '')}/public/`, 'index.html'));
 });
 
 app.listen(8877, function (err) {
