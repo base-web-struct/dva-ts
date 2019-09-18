@@ -33,7 +33,6 @@ const proxyConfig = {
 app.use('/api', proxy(proxyConfig));
 
 app.get('*', function (req, res) {
-    console.log(__dirname)
     res.sendFile(path.join(`${__dirname.replace(/\/bin/g, '')}/public/`, 'index.html'));
 });
 
